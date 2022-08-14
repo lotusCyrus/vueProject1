@@ -31,8 +31,9 @@
 
 <button @click="toggleModal">Login</button>
 <button @click="toggleModal1"> Register</button>
-
-
+<br> <br><hr>
+<h3>Overview</h3>
+<p class="overview">In this modal project, <br>i'm creating two interfaces (The login and The register);<br> Out of a single component(Modal component).<br> some datas were passed using props , slots. </p>
 </template>
 
 <script>
@@ -76,5 +77,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.overview
+{
+    font-size:10px;
+
+    text-align: center;
 }
 </style>
