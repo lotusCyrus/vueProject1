@@ -1,7 +1,9 @@
  <template>
   <div class="back-drop" @click.self="closeModal">
     <div class="modal" :class="{sales: theme ==='sales'}">
+        <h2>{{regheader}}</h2>
         <h2>{{header}}</h2>
+        <h2>{{loginheader}}</h2>
       <p>{{text}}</p>
      
      <slot></slot>
@@ -18,7 +20,7 @@
 <script>
     export default 
     {
-      props:['header', 'text' , 'theme'],
+      props:['header', 'text' , 'regheader', 'loginheader' , 'theme'],
     
     methods:
     {
