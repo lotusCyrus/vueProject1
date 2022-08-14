@@ -1,16 +1,37 @@
 <template>
- <h1 ref="name">{{title}}</h1>
+    <h1>{{header}}</h1>
+ <p ref="name">{{title}}</p>
  
 <div v-if="showModal">
- <Modal :header="header" :text="text" :theme="theme" @close="toggleModal">
-     <p>what a cool app</p>
+ <Modal :loginheader="loginheader" :theme="theme" @close="toggleModal">
+     <p>Login to your account</p>
+     
      <template v-slot:links> 
-        <a href="#">Signup</a>
+        <a href="#">Log in</a>
          <a href="#">More info</a>
      </template>
+     
  </Modal>
 </div>
-<button @click="toggleModal">click me</button>
+
+ 
+<div v-if="showModal1">
+ <Modal :regheader="regheader" @close="toggleModal1">
+     
+     <p>Register your account.</p>
+     
+     <template v-slot:links>
+        <a href="#">Reigister</a>  
+         <a href="#">More info</a>
+     </template>
+     
+ </Modal>
+</div>
+
+
+<button @click="toggleModal">Login</button>
+<button @click="toggleModal1"> Register</button>
+
 
 </template>
 
@@ -21,18 +42,26 @@ export default {
   components: {Modal},
   data(){
       return{
-          title:'this page title',
-          header:'This header of this modal',
+          title:'Welcome to the vue portal.',
+          header:'Hello User',
+          regheader:'Welcome visitor',
+          loginheader:'Welcome back!',
           text:'This is the page text',
           theme:'sales',
-          showModal:false
+          showModal:false,
+          showModal1:false
       }
-    },
+    }, 
       
       methods:{
         toggleModal()
         {
             this.showModal = !this.showModal
+        },
+        
+         toggleModal1()
+        {
+            this.showModal1= !this.showModal1
         }
       }
   
